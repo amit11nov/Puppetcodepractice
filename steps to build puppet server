@@ -1,0 +1,149 @@
+On the puppetmaster:
+$ sudo yum -y install nano git ntp
+$ sudo service ntpd start
+$ sudo chkconfig ntpd on
+
+-------------------------------------------------------------------------------
+
+PUPPET MASTER INSTALL
+
+$ sudo yum -y install http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm 
+$ sudo yum -y install puppet-server
+$ puppet master --version
+
+-------------------------------------------------------------------------------
+Dir Stru
+=========
+ mkdir -p /etc/puppet/environments/production/{modules,manifests}
+
+vi /etc/puppet/environments/production/environment.conf
+modulepath = /etc/puppet/environments/production/modules
+environment_timeout = 5s
+
+
+vi /etc/puppet/puppet.conf
+[main]
+ dns_alt_names = puppetmaster,puppetmaster.mylab.local
+
+[master]
+    environmentpath = $confdir/environments
+    basemodulepath = $confdir/modules:/opt/puppet/share/moules
+
+
+setenforce permissive
+sed -i 's\=enforcing\=permissive\g' /etc/sysconfig/selinux
+more /etc/sysconfig/selinux
+getenforce
+
+
+IPtables
+==========
+service iptables stop
+chkconfig iptables off
+ vi /etc/sysconfig/iptables
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 8140 -j ACCEPT
+
+==============================================================
+Install puppet agent11
+========================
+update /etc/hosts file 
+ip puppetmaster.mylab.local
+ yum -y install http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
+ yum -y install puppet
+On master server puppetmaster 
+
+service puppetmaster start 
+
+on agent -- 
+/etc/puppet/ puppet.conf
+
+[agent]
+
+server = puppetmaster.mylab.local
+save 
+	
+puppet agent -t
+or 
+puppet agent -- verbose --no-daemanize --onetime 
+
+cd /var/lib/puppet/ssl
+-----------------------------------------------------------------
+on master 
+==================
+list pending cert request 
+
+puppet cert list 
+
+puppet cert sign puppetnode.mylab.local
+====================================================
+
+==================================================================
+Make sure that puppetmaster servie is running 
+to make service running persist ==> chkconfig puppetmaster on 
+====================================================================
+
+Working file resource 
+=====================
+vi /etc/puppet/environments/production/manifests/nodes.pp
+node 'puppet.mylab.local' {
+  file { '/info.txt':
+   ensure => 'present',
+   content => inline_template("created by Amit at <%= Time.now%>\n"),
+  }
+}
+
+node 'agent1' {
+file { '/info.txt':
+   ensure => 'present',
+   content => inline_template("created by Amit at <%= Time.now%>\n"),
+  }
+}
+==========================================
+
+Backup files
+==================.
+All logs of puppet can find at --> tail /var/log/messages
+
+To restore any over wirten files -->puppet filebucket -l --bucket /var/lib/puppet/clientbucket/ restore /info.txt md5code 
+
+================================================================
+========================
+update node.pp on master 
+============================
+
+node 'puppetnode.mylab.local' {
+ class { 'linux': }
+
+}
+
+node 'node2.mylab.local' {
+
+ class { 'linux': }
+
+}
+
+class linux {
+  $admintools = ['git', 'nano', 'ntp']
+
+  package { $admintools:
+    ensure => 'installed',
+  }
+
+  $ntpservice = $osfamily ? {
+    'redhat' => 'ntpd',
+    'debian' => 'ntp',
+    default => 'ntp',
+  }
+
+
+  file { '/info.txt':
+   ensure => 'present',
+   content => inline_template("created by raghu at <%= Time.now%>\n"),
+  }
+
+ service { $ntpservice:
+    ensure => 'running',
+    enable => true,
+  }
+
+}
