@@ -1,0 +1,274 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2018.10.24 09:46:47 =~=~=~=~=~=~=~=~=~=~=~=
+login as: vagram nt
+vagrant@192.168.33.51's password: 
+Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 3.13.0-125-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+
+  System information as of Wed Oct 24 04:10:50 UTC 2018
+
+  System load:  0.91              Processes:           84
+  Usage of /:   3.9% of 39.34GB   Users logged in:     0
+  Memory usage: 28%               IP address for eth0: 10.0.2.15
+  Swap usage:   0%                IP address for eth1: 192.168.33.51
+
+  Graph this data and manage this system at:
+    https://landscape.canonical.com/
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+179 packages can be updated.
+145 updates are security updates.
+
+New release '16.04.5 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Tue Oct 23 08:32:38 2018 from 192.168.33.1
+vagrant@nodep1:~$ sudo su -
+root@nodep1:~# puppet agent -t --environment dev
+Info: Retrieving plugin
+Info: Caching catalog for nodep1.in.oracle.com
+Info: Applying configuration version '1540356801'
+Notice: specific to nodep1
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[Welcome]/message: defined 'message' as 'specific to nodep1'
+Notice: Finished catalog run in 0.17 seconds
+root@nodep1:~# puppet agent -t --environment dev
+Info: Retrieving plugin
+Error: Could not retrieve catalog from remote server: Error 400 on SERVER: Could not find data item somevar in any Hiera data file and no default supplied at /etc/puppet/environments/dev/manifests/app.pp:4 on node nodep1.in.oracle.com
+Warning: Not using cache on failed catalog
+Error: Could not retrieve catalog; skipping run
+root@nodep1:~# puppet agent -t --environment dev
+Info: Retrieving plugin
+Error: Could not retrieve catalog from remote server: Error 400 on SERVER: Could not find data item somevar in any Hiera data file and no default supplied at /etc/puppet/environments/dev/manifests/app.pp:4 on node nodep1.in.oracle.com
+Warning: Not using cache on failed catalog
+Error: Could not retrieve catalog; skipping run
+root@nodep1:~# puppet agent -t --environment dev
+Info: Retrieving plugin
+Error: Could not retrieve catalog from remote server: Error 400 on SERVER: Could not find data item somevar in any Hiera data file and no default supplied at /etc/puppet/environments/dev/manifests/app.pp:4 on node nodep1.in.oracle.com
+Warning: Not using cache on failed catalog
+Error: Could not retrieve catalog; skipping run
+root@nodep1:~# puppet agent -t --environment dev
+Info: Retrieving plugin
+Info: Caching catalog for nodep1.in.oracle.com
+Info: Applying configuration version '1540359754'
+Notice: value from hiera somevalue
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[value from hiera somevalue]/message: defined 'message' as 'value from hiera somevalue'
+Notice: specific to nodep1
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[Welcome]/message: defined 'message' as 'specific to nodep1'
+Notice: Finished catalog run in 0.16 seconds
+root@nodep1:~# pwd
+/root
+root@nodep1:~# root@nodep1:~# pwduppet agent -t --environment dev
+Info: Retrieving plugin
+Info: Caching catalog for nodep1.in.oracle.com
+Info: Applying configuration version '1540360390'
+Notice: value from hiera somevalue
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[value from hiera somevalue]/message: defined 'message' as 'value from hiera somevalue'
+Notice: specific to nodep1
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[Welcome]/message: defined 'message' as 'specific to nodep1'
+Notice: Finished catalog run in 0.16 seconds
+root@nodep1:~# puppet agent -t --environment dev
+Info: Retrieving plugin
+Error: Could not retrieve catalog from remote server: Error 400 on SERVER: Could not parse for environment dev: Syntax error at '=>'; expected '}' at /etc/puppet/environments/dev/manifests/app.pp:7 on node nodep1.in.oracle.com
+Warning: Not using cache on failed catalog
+Error: Could not retrieve catalog; skipping run
+root@nodep1:~# root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# puppet agent -t --environment dev
+Info: Retrieving plugin
+Error: Could not retrieve catalog from remote server: Error 400 on SERVER: Could not parse for environment dev: Syntax error at '=>'; expected '}' at /etc/puppet/environments/dev/manifests/app.pp:7 on node nodep1.in.oracle.com
+Warning: Not using cache on failed catalog
+Error: Could not retrieve catalog; skipping run
+root@nodep1:~# puppet agent -t --environment dev
+Info: Retrieving plugin
+Error: Could not retrieve catalog from remote server: Error 400 on SERVER: Could not find data item apacheport in any Hiera data file and no default supplied at /etc/puppet/environments/dev/manifests/app.pp:7 on node nodep1.in.oracle.com
+Warning: Not using cache on failed catalog
+Error: Could not retrieve catalog; skipping run
+root@nodep1:~# puppet agent -t --environment dev
+Info: Retrieving plugin
+Info: Caching catalog for nodep1.in.oracle.com
+Info: Applying configuration version '1540361768'
+Notice: value from hiera somevalue
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[value from hiera somevalue]/message: defined 'message' as 'value from hiera somevalue'
+Notice: from nodep1.in.oracle.com
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[Welcome]/message: defined 'message' as 'from nodep1.in.oracle.com'
+Notice: Finished catalog run in 0.16 seconds
+root@nodep1:~# cd /tmp
+root@nodep1:/tmp# git clone ghttps://https://github.com/AdityaSP/puppetcode
+The program 'git' is currently not installed. You can install it by typing:
+apt-get install git
+root@nodep1:/tmp# apt-get install git
+Reading package lists... 0%Reading package lists... 100%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree       
+Reading state information... 0%Reading state information... 0%Reading state information... Done
+The following extra packages will be installed:
+  git-man liberror-perl
+Suggested packages:
+  git-daemon-run git-daemon-sysvinit git-doc git-el git-email git-gui gitk
+  gitweb git-arch git-bzr git-cvs git-mediawiki git-svn
+The following NEW packages will be installed:
+  git git-man liberror-perl
+0 upgraded, 3 newly installed, 0 to remove and 176 not upgraded.
+Need to get 3,054 kB of archives.
+After this operation, 22.0 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+0% [Working]            0% [Waiting for headers]                        Get:1 http://archive.ubuntu.com/ubuntu/ trusty/main liberror-perl all 0.17-1.1 [21.1 kB]
+                        0% [1 liberror-perl 0 B/21.1 kB 0%]                                   1% [Working]            1% [Waiting for headers]1% [Waiting for headers]1% [Waiting for headers]1% [Waiting for headers]1% [Waiting for headers]                        Get:2 http://archive.ubuntu.com/ubuntu/ trusty-updates/main git-man all 1:1.9.1-1ubuntu0.9 [701 kB]
+                        1% [2 git-man 0 B/701 kB 0%]                            24% [Working]             24% [Waiting for headers]24% [Waiting for headers]24% [Waiting for headers]24% [Waiting for headers]                         24% [Waiting for headers]                                          115 kB/s 20s24% [Waiting for headers]                                          115 kB/s 20s24% [Waiting for headers]                                          115 kB/s 20s                                                                               Get:3 http://archive.ubuntu.com/ubuntu/ trusty-updates/main git amd64 1:1.9.1-1ubuntu0.9 [2,333 kB]
+24% [3 git 0 B/2,333 kB 0%]                                        115 kB/s 20s100% [Working]                                                      115 kB/s 0s                                                                               Fetched 3,054 kB in 7s (382 kB/s)
+Selecting previously unselected package liberror-perl.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 63772 files and directories currently installed.)
+Preparing to unpack .../liberror-perl_0.17-1.1_all.deb ...
+Unpacking liberror-perl (0.17-1.1) ...
+Selecting previously unselected package git-man.
+Preparing to unpack .../git-man_1%3a1.9.1-1ubuntu0.9_all.deb ...
+Unpacking git-man (1:1.9.1-1ubuntu0.9) ...
+Selecting previously unselected package git.
+Preparing to unpack .../git_1%3a1.9.1-1ubuntu0.9_amd64.deb ...
+Unpacking git (1:1.9.1-1ubuntu0.9) ...
+Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+Setting up liberror-perl (0.17-1.1) ...
+Setting up git-man (1:1.9.1-1ubuntu0.9) ...
+Setting up git (1:1.9.1-1ubuntu0.9) ...
+root@nodep1:/tmp# apt-get install gitgit clone https://github.com/AdityaSP/puppetcode
+Cloning into 'puppetcode'...
+remote: Enumerating objects: 36, done.
+remote: Total 36 (delta 0), reused 0 (delta 0), pack-reused 36
+Unpacking objects:   2% (1/36)   Unpacking objects:   5% (2/36)   Unpacking objects:   8% (3/36)   Unpacking objects:  11% (4/36)   Unpacking objects:  13% (5/36)   Unpacking objects:  16% (6/36)   Unpacking objects:  19% (7/36)   Unpacking objects:  22% (8/36)   Unpacking objects:  25% (9/36)   Unpacking objects:  27% (10/36)   Unpacking objects:  30% (11/36)   Unpacking objects:  33% (12/36)   Unpacking objects:  36% (13/36)   Unpacking objects:  38% (14/36)   Unpacking objects:  41% (15/36)   Unpacking objects:  44% (16/36)   Unpacking objects:  47% (17/36)   Unpacking objects:  50% (18/36)   Unpacking objects:  52% (19/36)   Unpacking objects:  55% (20/36)   Unpacking objects:  58% (21/36)   Unpacking objects:  61% (22/36)   Unpacking objects:  63% (23/36)   Unpacking objects:  66% (24/36)   Unpacking objects:  69% (25/36)   Unpacking objects:  72% (26/36)   Unpacking objects:  75% (27/36)   Unpacking objects:  77% (28/36)   Unpacking objects:  80% (29/36)   Unpacking objects:  83% (30/36)   Unpacking objects:  86% (31/36)   Unpacking objects:  88% (32/36)   Unpacking objects:  91% (33/36)   Unpacking objects:  94% (34/36)   Unpacking objects:  97% (35/36)   Unpacking objects: 100% (36/36)   Unpacking objects: 100% (36/36), done.
+Checking connectivity... done.
+root@nodep1:/tmp# ls
+puppetcode
+root@nodep1:/tmp# lsgit clone https://github.com/AdityaSP/puppetcodeapt-get install gitgit clone https://github.com/AdityaSP/puppetcodecd /tmppuppet agent -t --environment dev
+Info: Retrieving plugin
+Error: Could not retrieve catalog from remote server: Error 400 on SERVER: Puppet::Parser::AST::Resource failed with error ArgumentError: Invalid resource type vcsrepo at /etc/puppet/environments/dev/manifests/app.pp:10 on node nodep1.in.oracle.com
+Warning: Not using cache on failed catalog
+Error: Could not retrieve catalog; skipping run
+root@nodep1:/tmp# puppet agent -t --environment devlspuppet agent -t --environment dev
+Info: Retrieving plugin
+Notice: /File[/var/lib/puppet/lib/puppet]/ensure: created
+Notice: /File[/var/lib/puppet/lib/puppet/provider]/ensure: created
+Notice: /File[/var/lib/puppet/lib/puppet/provider/vcsrepo]/ensure: created
+Notice: /File[/var/lib/puppet/lib/puppet/provider/vcsrepo/p4.rb]/ensure: defined content as '{md5}7e9f6396f3220343fceac3c8056468dc'
+Notice: /File[/var/lib/puppet/lib/puppet/provider/vcsrepo.rb]/ensure: defined content as '{md5}ff406d68236bf7dfe75b0f7e57cf3f7b'
+Notice: /File[/var/lib/puppet/lib/puppet/provider/vcsrepo/bzr.rb]/ensure: defined content as '{md5}3a384b11d5eb40bc8b306a4b77d98361'
+Notice: /File[/var/lib/puppet/lib/puppet/provider/vcsrepo/svn.rb]/ensure: defined content as '{md5}de1c1304be6562af88537952e9e5c88b'
+Notice: /File[/var/lib/puppet/lib/puppet/provider/vcsrepo/hg.rb]/ensure: defined content as '{md5}f53624854ca1e02c878366a7ab16ddfa'
+Notice: /File[/var/lib/puppet/lib/puppet/provider/vcsrepo/dummy.rb]/ensure: defined content as '{md5}2a0645128832cd824bc3241c3c33a3e6'
+Notice: /File[/var/lib/puppet/lib/puppet/type]/ensure: created
+Notice: /File[/var/lib/puppet/lib/puppet/type/vcsrepo.rb]/ensure: defined content as '{md5}e3460791729b38b7c0340f9604b70e96'
+Notice: /File[/var/lib/puppet/lib/facter]/ensure: created
+Notice: /File[/var/lib/puppet/lib/facter/vcsrepo_svn_ver.rb]/ensure: defined content as '{md5}236d81d97fabbc213f9bf89f88546848'
+Notice: /File[/var/lib/puppet/lib/puppet/provider/vcsrepo/git.rb]/ensure: defined content as '{md5}8371b4425281b8658ccfd3aa661e7215'
+Notice: /File[/var/lib/puppet/lib/puppet/provider/vcsrepo/cvs.rb]/ensure: defined content as '{md5}d749f2b6fa1aefc0ad13bff524beadad'
+Info: Loading facts in /var/lib/puppet/lib/facter/vcsrepo_svn_ver.rb
+Info: Caching catalog for nodep1.in.oracle.com
+Info: Applying configuration version '1540364740'
+Notice: value from hiera somevalue
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[value from hiera somevalue]/message: defined 'message' as 'value from hiera somevalue'
+Notice: from nodep1.in.oracle.com
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[Welcome]/message: defined 'message' as 'from nodep1.in.oracle.com'
+Notice: /Stage[main]/Main/Node[nodep0-9]/Vcsrepo[/var/www/html/proj]/ensure: Creating repository from latest
+Notice: /Stage[main]/Main/Node[nodep0-9]/Vcsrepo[/var/www/html/proj]/ensure: created
+Notice: Finished catalog run in 2.87 seconds
+root@nodep1:/tmp# cd cat /etc/ap
+Display all 193 possibilities? (y or n)
+root@nodep1:/tmp# cat /etc/bapache2/
+apache2.conf     conf-available/  conf-enabled/    envvars          magic            mods-available/  mods-enabled/    ports.conf       sites-available/ sites-enabled/   
+root@nodep1:/tmp# cat /etc/apache2/ports.conf 
+# If you just change the port or add more ports here, you will likely also
+# have to change the VirtualHost statement in
+# /etc/apache2/sites-enabled/000-default.conf
+
+Listen 8081
+
+<IfModule ssl_module>
+Listen 443
+</IfModule>
+
+<IfModule mod_gnutls.c>
+Listen 443
+</IfModule>
+
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+root@nodep1:/tmp# cd -
+/root
+root@nodep1:~# ls
+apache2  install-apache2.pp  order.pp  refresh.pp  run_vars.pp  stop-apache2.pp  vars
+root@nodep1:~# more /var/wwww//html/proj/index.html 
+<html>
+<body>
+<h1 style='color:red'>Title - deployed through puppet Sept 5</h1>
+  <h1 style='color:green'>some new content</h1>
+</body>
+</html>
+root@nodep1:~# more /var/www/html/proj/index.html vi
+  "/var/www/html/proj/index.html" 6L, 144C<html>
+<body>
+<h1 style='color:red'>Title - deployed through puppet Sept 5</h1>
+  <h1 style='color:green'>some new content</h1>
+</body>
+</html>
+~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            ~                                                                                                                                                                                            1,1All2342345678910123456732,6 3,17892010198-- INSERT --3,18All9201'>Title - deployed through puppet Sept 5</h1>0'>Title - deployed through puppet Sept 5</h1>19'>Title - deployed through puppet Sept 5</h1>8B'>Title - deployed through puppet Sept 5</h1>9l'>Title - deployed through puppet Sept 5</h1>20u'>Title - deployed through puppet Sept 5</h1>1e'>Title - deployed through puppet Sept 5</h1>24334567893012345678940123456789501234567896012</h1>1</h1>0</h1>59</h1>8</h1>7</h1>6O</h1>7c</h1>8t</h1>9 </h1>602</h1>11</h1>2</h1>14</h1>23,61All6,1 :wq!"/var/www/html/proj/index.html" 6L, 145C written
+root@nodep1:~# vi /var/www/html/proj/index.html morelscd -at /etc/apache2/ports.conf puppet agent -t --environment devlspuppet agent -t --environment dev
+Info: Retrieving plugin
+Info: Loading facts in /var/lib/puppet/lib/facter/vcsrepo_svn_ver.rb
+Info: Caching catalog for nodep1.in.oracle.com
+Info: Applying configuration version '1540365563'
+Notice: value from hiera somevalue
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[value from hiera somevalue]/message: defined 'message' as 'value from hiera somevalue'
+Notice: from nodep1.in.oracle.com
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[Welcome]/message: defined 'message' as 'from nodep1.in.oracle.com'
+Notice: /Stage[main]/Main/Node[nodep0-9]/Vcsrepo[/var/www/html/proj]/ensure: Updating to latest 'master' revision
+Notice: /Stage[main]/Main/Node[nodep0-9]/Vcsrepo[/var/www/html/proj]/ensure: ensure changed 'present' to 'latest'
+Notice: Finished catalog run in 13.27 seconds
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# pwd
+/root
+root@nodep1:~# pwduppet agent -t --environment devvi /var/www/html/proj/index.html morelscd -at /etc/apache2/ports.conf puppet agent -t --environment devlsgit clone https://github.com/AdityaSP/puppetcodeapt-get install gitgit clone https://github.com/AdityaSP/puppetcode
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~#    The current port forwarding rules are not valid. None of the host or guest port values may be set to zero.
+No command 'The' found, did you mean:
+ Command 'the' from package 'the' (universe)
+The: command not found
+root@nodep1:~# 
+root@nodep1:~# The current port forwarding rules are not valid. None of the host or guest port values may be set to zero.
+No command 'The' found, did you mean:
+ Command 'the' from package 'the' (universe)
+The: command not found
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~#    
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# 
+root@nodep1:~# exit
+logout
+vagrant@nodep1:~$ exit
+logout

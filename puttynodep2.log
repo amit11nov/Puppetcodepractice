@@ -1,0 +1,159 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2018.10.24 09:47:47 =~=~=~=~=~=~=~=~=~=~=~=
+login as: vagrant
+vagrant@192.168.33.52's password: 
+Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 3.13.0-125-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+
+  System information as of Wed Oct 24 04:11:24 UTC 2018
+
+  System load:  0.37              Processes:           88
+  Usage of /:   3.7% of 39.34GB   Users logged in:     0
+  Memory usage: 27%               IP address for eth0: 10.0.2.15
+  Swap usage:   0%                IP address for eth1: 192.168.33.52
+
+  Graph this data and manage this system at:
+    https://landscape.canonical.com/
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+179 packages can be updated.
+145 updates are security updates.
+
+New release '16.04.5 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Tue Oct 23 09:37:27 2018 from 192.168.33.1
+vagrant@nodep2:~$ sudo su -
+root@nodep2:~# puppet agent -t --environment prod
+Exiting; no certificate found and waitforcert is disabled
+root@nodep2:~# puppet agent -t --environment prod
+Info: Caching certificate for nodep2.in.oracle.com
+Info: Caching certificate for nodep2.in.oracle.com
+Info: Retrieving plugin
+Error: Could not retrieve catalog from remote server: Error 400 on SERVER: Could not parse for environment prod: Syntax error at '}'; expected '}' at /etc/puppet/environments/prod/manifests/app.pp:2 on node nodep2.in.oracle.com
+Warning: Not using cache on failed catalog
+Error: Could not retrieve catalog; skipping run
+root@nodep2:~# puppet agent -t --environment prod
+Info: Retrieving plugin
+Info: Caching catalog for nodep2.in.oracle.com
+Info: Applying configuration version '1540357752'
+Notice: Welcome
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[Welcome]/message: defined 'message' as 'Welcome'
+Notice: /Stage[main]/Apache2/File[/etc/apache2/ports.conf]/content: 
+--- /etc/apache2/ports.conf2018-10-23 09:54:03.297500891 +0000
++++ /tmp/puppet-file20181024-2344-1ifmetz2018-10-24 05:09:13.303443371 +0000
+@@ -2,7 +2,7 @@
+ # have to change the VirtualHost statement in
+ # /etc/apache2/sites-enabled/000-default.conf
+ 
+-Listen 9000
++Listen 8081
+ 
+ <IfModule ssl_module>
+ Listen 443
+
+Info: /Stage[main]/Apache2/File[/etc/apache2/ports.conf]: Filebucketed /etc/apache2/ports.conf to puppet with sum d6c1b7d2f5c16753d93db12f147dcae1
+Notice: /Stage[main]/Apache2/File[/etc/apache2/ports.conf]/content: content changed '{md5}d6c1b7d2f5c16753d93db12f147dcae1' to '{md5}ff7b6602e7168cc691c3f18f8aec3b97'
+Info: /Stage[main]/Apache2/File[/etc/apache2/ports.conf]: Scheduling refresh of Service[apache2]
+Notice: /Stage[main]/Apache2/Service[apache2]: Triggered 'refresh' from 1 events
+Notice: Finished catalog run in 2.46 seconds
+root@nodep2:~# root@nodep2:~# puppet agent -t --environment prod
+Info: Retrieving plugin
+Info: Caching catalog for nodep2.in.oracle.com
+Info: Applying configuration version '1540360405'
+Notice: Welcome
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[Welcome]/message: defined 'message' as 'Welcome'
+Notice: Finished catalog run in 0.15 seconds
+root@nodep2:~# puppet agent -t --environment proddev
+Info: Retrieving plugin
+Info: Caching catalog for nodep2.in.oracle.com
+Info: Applying configuration version '1540360441'
+Notice: value from hiera somevalue
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[value from hiera somevalue]/message: defined 'message' as 'value from hiera somevalue'
+Notice: specific to nodep1
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[Welcome]/message: defined 'message' as 'specific to nodep1'
+Notice: Finished catalog run in 0.16 seconds
+root@nodep2:~# puppet agent -t --environment dev
+Info: Retrieving plugin
+Info: Caching catalog for nodep2.in.oracle.com
+Info: Applying configuration version '1540360609'
+Notice: value from hiera somevalue
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[value from hiera somevalue]/message: defined 'message' as 'value from hiera somevalue'
+Notice: specific to nodep1
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[Welcome]/message: defined 'message' as 'specific to nodep1'
+Notice: Finished catalog run in 0.16 seconds
+root@nodep2:~# puppet agent -t --environment dev
+Info: Retrieving plugin
+Info: Caching catalog for nodep2.in.oracle.com
+Info: Applying configuration version '1540360648'
+Notice: value from hiera somevalue
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[value from hiera somevalue]/message: defined 'message' as 'value from hiera somevalue'
+Notice: specific to nodep1
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[Welcome]/message: defined 'message' as 'specific to nodep1'
+Notice: Finished catalog run in 0.18 seconds
+root@nodep2:~# puppet agent -t --environment dev
+Info: Retrieving plugin
+Info: Caching catalog for nodep2.in.oracle.com
+Info: Applying configuration version '1540361019'
+Notice: value from hiera somevalue
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[value from hiera somevalue]/message: defined 'message' as 'value from hiera somevalue'
+Notice: specific to nodep1
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[Welcome]/message: defined 'message' as 'specific to nodep1'
+Notice: Finished catalog run in 0.17 seconds
+root@nodep2:~# puppet agent -t --environment dev
+Info: Retrieving plugin
+Notice: /File[/var/lib/puppet/lib/puppet]/ensure: created
+Notice: /File[/var/lib/puppet/lib/puppet/provider]/ensure: created
+Notice: /File[/var/lib/puppet/lib/puppet/provider/vcsrepo]/ensure: created
+Notice: /File[/var/lib/puppet/lib/puppet/provider/vcsrepo/p4.rb]/ensure: defined content as '{md5}7e9f6396f3220343fceac3c8056468dc'
+Notice: /File[/var/lib/puppet/lib/puppet/provider/vcsrepo.rb]/ensure: defined content as '{md5}ff406d68236bf7dfe75b0f7e57cf3f7b'
+Notice: /File[/var/lib/puppet/lib/puppet/provider/vcsrepo/bzr.rb]/ensure: defined content as '{md5}3a384b11d5eb40bc8b306a4b77d98361'
+Notice: /File[/var/lib/puppet/lib/puppet/provider/vcsrepo/svn.rb]/ensure: defined content as '{md5}de1c1304be6562af88537952e9e5c88b'
+Notice: /File[/var/lib/puppet/lib/puppet/provider/vcsrepo/hg.rb]/ensure: defined content as '{md5}f53624854ca1e02c878366a7ab16ddfa'
+Notice: /File[/var/lib/puppet/lib/puppet/provider/vcsrepo/dummy.rb]/ensure: defined content as '{md5}2a0645128832cd824bc3241c3c33a3e6'
+Notice: /File[/var/lib/puppet/lib/puppet/type]/ensure: created
+Notice: /File[/var/lib/puppet/lib/puppet/type/vcsrepo.rb]/ensure: defined content as '{md5}e3460791729b38b7c0340f9604b70e96'
+Notice: /File[/var/lib/puppet/lib/facter]/ensure: created
+Notice: /File[/var/lib/puppet/lib/facter/vcsrepo_svn_ver.rb]/ensure: defined content as '{md5}236d81d97fabbc213f9bf89f88546848'
+Notice: /File[/var/lib/puppet/lib/puppet/provider/vcsrepo/git.rb]/ensure: defined content as '{md5}8371b4425281b8658ccfd3aa661e7215'
+Notice: /File[/var/lib/puppet/lib/puppet/provider/vcsrepo/cvs.rb]/ensure: defined content as '{md5}d749f2b6fa1aefc0ad13bff524beadad'
+Info: Loading facts in /var/lib/puppet/lib/facter/vcsrepo_svn_ver.rb
+Info: Caching catalog for nodep2.in.oracle.com
+Info: Applying configuration version '1540364783'
+Notice: /Stage[main]/Main/Node[nodep0-9]/Package[git]/ensure: ensure changed 'purged' to 'present'
+Notice: value from hiera somevalue
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[value from hiera somevalue]/message: defined 'message' as 'value from hiera somevalue'
+Notice: from nodep2.in.oracle.com
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[Welcome]/message: defined 'message' as 'from nodep2.in.oracle.com'
+Notice: /Stage[main]/Main/Node[nodep0-9]/Vcsrepo[/var/www/html/proj]/ensure: Creating repository from latest
+Notice: /Stage[main]/Main/Node[nodep0-9]/Vcsrepo[/var/www/html/proj]/ensure: created
+Notice: Finished catalog run in 15.41 seconds
+root@nodep2:~# cd /var/www/html/proj/
+root@nodep2:/var/www/html/proj# ls
+hiera.yaml  index.html  mypage.php  README.md
+root@nodep2:/var/www/html/proj# cat index.html 
+<html>
+<body>
+<h1 style='color:red'>Title - deployed through puppet Sept 5</h1>
+  <h1 style='color:green'>some new content</h1>
+</body>
+</html>
+root@nodep2:/var/www/html/proj# cat index.html lscd /var/www/html/proj/puppet agent -t --environment dev
+Info: Retrieving plugin
+Info: Loading facts in /var/lib/puppet/lib/facter/vcsrepo_svn_ver.rb
+Info: Caching catalog for nodep2.in.oracle.com
+Info: Applying configuration version '1540365588'
+Notice: value from hiera somevalue
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[value from hiera somevalue]/message: defined 'message' as 'value from hiera somevalue'
+Notice: from nodep2.in.oracle.com
+Notice: /Stage[main]/Main/Node[nodep0-9]/Notify[Welcome]/message: defined 'message' as 'from nodep2.in.oracle.com'
+Notice: /Stage[main]/Main/Node[nodep0-9]/Vcsrepo[/var/www/html/proj]/ensure: Updating to latest 'master' revision
+Notice: /Stage[main]/Main/Node[nodep0-9]/Vcsrepo[/var/www/html/proj]/ensure: ensure changed 'present' to 'latest'
+Notice: Finished catalog run in 13.68 seconds
+root@nodep2:/var/www/html/proj# exit
+logout
+vagrant@nodep2:~$ exit
+logout
