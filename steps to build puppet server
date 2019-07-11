@@ -138,7 +138,7 @@ class linux {
 
   file { '/info.txt':
    ensure => 'present',
-   content => inline_template("created by raghu at <%= Time.now%>\n"),
+   content => inline_template("created by Amit at <%= Time.now%>\n"),
   }
 
  service { $ntpservice:
